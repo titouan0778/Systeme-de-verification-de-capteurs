@@ -1,13 +1,14 @@
 #include "capteur.hpp"
 #include <iostream>
 #include <string>
+#include <vector>
 
 capteur_double::capteur_double(std::string n,double v,double vin,double vax,std::string reac) : nom(n),val(v),val_min(vin),val_max(vax),reaction(reac){};
 capteur_bool::capteur_bool(std::string n,bool v,bool s,std::string reac) : nom(n),val(v),statut(s),reaction(reac){};
 
 void capteur_double::verification_val(){
 	if(val<val_min || val>val_max){
-		std::cout<<reaction;
+		std::cout<<reaction<<std::endl;
 	}
 }
 
@@ -18,11 +19,11 @@ void capteur_double::modification_val(double nv_val){
 
 void capteur_bool::verification_val(){
 	if(val!=statut){
-		std::cout<<reaction;
+		std::cout<<reaction<<std::endl;
 	}
 }
 
-void capteur_bool::modification_val(double nv_val){
+void capteur_bool::modification_val(bool nv_val){
 	val=nv_val;
 	verification_val();
 }
@@ -58,4 +59,18 @@ capteur_bool creeCapteur_bool(std::string nom){
 		v=true;
 	}
 	return capteur_bool(nom,v,statut,reac);
+}
+
+void visualiserCapteurs(std::vector<capteur_double> listeCapteursDoubles,std::vector<capteur_bool> listeCapteursBools){
+	if(listeCapteursDoubles.size()==0 && listeCapteursBools.size()==0){
+		std::cout<<"Aucun capteur enregistré"<<std::endl;
+	}
+	else{
+		for(int i=0 ; i<listeCapteursDoubles.size() ; i++){
+			std::cout<<listeCapteursDoubles.at(i).nom<<std::endl;
+		}
+		for(int i=0 ; i<listeCapteursBools.size() ; i++){
+			std::cout<<listeCapteursBools.at(i).nom<<std::endl;
+		}
+	}
 }

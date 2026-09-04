@@ -6,14 +6,22 @@
 int main(){
 	std::vector<capteur_double> listeCapteursDoubles;
 	std::vector<capteur_bool> listeCapteursBools;
-	std::string reponse="Quelque chose";
+	int reponse;
 	do{
-		std::cout<<"Bonjour, que voulez vous faire ('AjouterUnCapteur'/'ModifierLaValeurD'UnCapteur'/'SupprimerUnCapteur'/'Rien') ?"<<std::endl;
+		std::cout<<"Bonjour, que voulez vous faire ?"<<std::endl;
+		std::cout<<"1 - Ajouter un capteur"<<std::endl;
+		std::cout<<"2 - Modifier la valeur d'un capteur"<<std::endl;
+		std::cout<<"3 - Supprimer un capteur"<<std::endl;
+		std::cout<<"4 - Visualiser les capteurs"<<std::endl;
+		std::cout<<"5 - Quitter"<<std::endl;
 		std::cin>>reponse;
-		if(reponse=="Rien"){
+		if(reponse==5){
 			return 0;
 		}
-		if(reponse=="AjouterUnCapteur"){
+		if(reponse==4){
+			visualiserCapteurs(listeCapteursDoubles,listeCapteursBools);
+		}
+		if(reponse==1){
 			std::string type,nom;
 			std::cout<<"Quel type de capteur voulez-vous créer (double/bool)"<<std::endl;
 			std::cin>>type;
@@ -31,7 +39,7 @@ int main(){
 				std::cout<<"Erreur, retour au menu principal";
 			}
 		}
-		if(reponse=="ModifierLaValeurD'UnCapteur"){
+		if(reponse==2){
 			std::string nom;
 			std::cout<<"Quel capteur voulez-vous modifier ?"<<std::endl;
 			std::cin>>nom;
@@ -62,35 +70,37 @@ int main(){
 				std::cout<<"Le capteur que vous recherchez n'existe pas"<<std::endl;
 			}	
 		}
-		if(reponse=="SupprimerUnCapteur"){
+		if(reponse==3){
 			std::string nom;
 			std::cout<<"Quel capteur voulez-vous supprimer ?"<<std::endl;
 			std::cin>>nom;
 			bool pres=false;
 			for(int i=0 ; i<listeCapteursDoubles.size() ; i++){
-				do{
-					if(nom==listeCapteursDoubles.at(i).nom){
-						pres=true;
-						listeCapteursDoubles.erase(listeCapteursDoubles.begin()+i);
-					}
-				} while(pres==false);
-			}
+				if(nom==listeCapteursDoubles.at(i).nom){
+					pres=true;
+					listeCapteursDoubles.erase(listeCapteursDoubles.begin()+i);
+				}
+				if(pres==true){
+					break;
+				}
+		}
 			for(int i=0 ; i<listeCapteursBools.size() ; i++){
-				do {
-					if(nom==listeCapteursBools.at(i).nom){
-						pres=true;
-						listeCapteursBools.erase(listeCapteursBools.begin()+i);
-					}
-				} while(pres==false);
-			}
+				if(nom==listeCapteursBools.at(i).nom){
+					pres=true;
+					listeCapteursBools.erase(listeCapteursBools.begin()+i);
+				}
+				if(pres==true){
+					break;
+				}
+		}
 			if(pres==false){
 				std::cout<<"Le capteur que vous recherchez n'existe pas"<<std::endl;
 			}
 		}
-		if(reponse!="AjouterUnCapteur" && reponse!="ModifierLaValeurD'UnCapteur" && reponse!="SupprimerUnCapteur"){
+		if(reponse<1 || reponse>5){
 			std::cout<<"Erreur : commande inexistante"<<std::endl;
 		}
-	} while(reponse!="Rien");
+	} while(reponse!=5);
 }
 			
 		
