@@ -31,7 +31,7 @@ Systeme-de-verification-de-capteurs/
 *	capteur.hpp   	# Définition des structures et fonctions
 *	LICENSE       	# Licence du projet
 *	.gitignore	# Définition des fichiers que git ne doit pas prendre en charge lors du suivi
-*	README.md	# Description du projet
+*	README.md	# Documentation du projet
 
 
 ## Fonctionnement
