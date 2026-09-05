@@ -26,12 +26,12 @@ Le programme permet de :
 
 
 Systeme-de-verification-de-capteurs/
-	main.cpp      	# Programme principal
-	capteur.cpp   	# Fonctions liées aux capteurs
-	capteur.hpp   	# Définition des structures et fonctions
-	LICENSE       	# Licence du projet
-	.gitignore	# Définition des fichiers que git ne doit pas prendre en charge lors du suivi
-	README.md	# Description du projet
+*	main.cpp      	# Programme principal
+*	capteur.cpp   	# Fonctions liées aux capteurs
+*	capteur.hpp   	# Définition des structures et fonctions
+*	LICENSE       	# Licence du projet
+*	.gitignore	# Définition des fichiers que git ne doit pas prendre en charge lors du suivi
+*	README.md	# Description du projet
 
 
 ## Fonctionnement
@@ -71,7 +71,7 @@ Il suffit de sélectionner l'action souhaitée en entrant le numéro associé pu
 
 Le projet peut être compilé avec un compilateur C++ comme `g++`.
 
-g++ -std=c++23 -o capteur main.cpp capteur.cpp
+`g++ -std=c++23 -o capteur main.cpp capteur.cpp`
 
 Puis lancer le programme :
 
